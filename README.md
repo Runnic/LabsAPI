@@ -32,6 +32,11 @@ Também é necessário configurar um arquivo **.env**, para isso apenas crie um 
 
 Caso precise das credencias entre em contato comigo pelo email: **ph.luna.vieira@gmail.com**.
 
+E por fim execute o seguinte comando para iniciar um servidor de desenvolvimento:
+
+```bash
+yarn dev
+```
 ### Gerando Build
 
 Esse projeto utiliza [Typescript](https://www.typescriptlang.org/) como linguagem de desenvolvimento portanto é necessário transpilar o código para Javascript se for executar o projeto em algum ambiente que não reconheça Typescript.
