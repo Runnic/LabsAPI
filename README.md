@@ -4,7 +4,7 @@ Projeto desenvolvido para seleção da **WA Project**.
 
 O projeto consiste em criar uma restAPI que cadastre Laboratórios e Exames, e relacione esses dois se necessário.
 
-Desenvolvi esse projeto utilizando [Typescript](https://www.typescriptlang.org/) com [Express.Js](https://expressjs.com/pt-br/) e utilizando a arquitetura **DDD (Domain-Driven Design)**.
+Desenvolvi esse projeto utilizando [Typescript](https://www.typescriptlang.org/) com [Express.Js](https://expressjs.com/pt-br/) e arquitetura **DDD (Domain-Driven Design)**.
 
 Também utilizei o [ESLint](https://eslint.org/) e [Prettier](https://prettier.io/) para manter uma boa organização de código.
 
@@ -44,3 +44,9 @@ yarn build
 ```
 
 Esse comando ira gerar uma pasta chamada **"Dist"** na raiz do projeto com o código transpilado para **Javascript**.
+
+Em seguida apenas execute o seguinte comando para executar localmente:
+
+```bash
+yarn start
+```
