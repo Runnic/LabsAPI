@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "ts-node-dev -r tsconfig-paths/register --respawn --transpile-only --no-notify src/shared/infra/http/server.ts",
     "build": "babel src --extensions \".js,.ts\" --out-dir dist --copy-files --no-copy-ignored",
-    "start": "node build/shared/infra/http/server.js"
+    "start": "node dist/shared/infra/http/server.js"
   },
   "dependencies": {
     "dotenv": "^10.0.0",
