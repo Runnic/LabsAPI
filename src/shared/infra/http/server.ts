@@ -11,7 +11,7 @@ import routes from '@shared/infra/http/routes'
 import GlobalExceptionHandler from '@shared/Errors/GlobalExceptionHandler'
 
 const app = express()
-const port = 8888
+const port = process.env.PORT || 8888
 
 app.use(express.json())
 
