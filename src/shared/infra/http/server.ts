@@ -12,7 +12,7 @@ import routes from '@shared/infra/http/routes'
 import GlobalExceptionHandler from '@shared/Errors/GlobalExceptionHandler'
 
 const app = express()
-const port = process.env.PORT || 8888
+const port = process.env.PORT || 7777 // Skr Skr Skr
 
 app.use(express.json())
 
