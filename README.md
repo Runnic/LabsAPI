@@ -2,7 +2,8 @@
 
 Projeto desenvolvido para seleção da **WA Project**.  
 O projeto consiste em uma restAPI que cadastre laboratórios e exames em **lote** e relacione esses dois se necessário.  
-Desenvolvi esse projeto utilizando [Typescript](https://www.typescriptlang.org/) com [Express.Js](https://expressjs.com/pt-br/) e arquitetura **DDD (Domain-Driven Design)**.  
+Desenvolvi esse projeto utilizando [Typescript](https://www.typescriptlang.org/) com o serviço em nuvem de banco de dados 
+[MongoDB Atlas](https://www.mongodb.com/) e arquitetura **DDD (Domain-Driven Design)**.  
 Também utilizei o [ESLint](https://eslint.org/) e [Prettier](https://prettier.io/) para manter uma boa organização de código.
 
 ### Acessando a API.
