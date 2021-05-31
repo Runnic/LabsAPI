@@ -11,12 +11,8 @@ routes.use('/laboratorios', LabsRouter)
 routes.use('/exames', ExamsRouter)
 routes.use('/associacoes', AssociationsRouter)
 
-routes.get('/insomnia', (_, res: Response) =>
-  res.sendFile(path.join(__dirname, '../static/insomnia.json'))
-)
-
 routes.get('/insomnia-download', (_, res: Response) =>
-  res.download(path.join(__dirname, '../static/insomnia.json'))
+  res.download(path.join(__dirname, '../static/labsAPI-insomnia.json'))
 )
 
 routes.get('/', (_, res: Response) =>

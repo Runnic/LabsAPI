@@ -9,13 +9,10 @@ Também utilizei o [ESLint](https://eslint.org/) e [Prettier](https://prettier.i
 
 A API está hospedada no serviço de Cloud **Heroku**: [LabsAPI](https://labs-api-wa-project.herokuapp.com/)  
 Para testar a API recomendo utilizar a ferramenta [Insominia](https://insomnia.rest/download).
-Copie o seguinte link para importar a **coleção** do Insominia com todas as rotas já configuradas:  
+Copie o seguinte link ou baixe o arquivo para importar a **coleção** do Insominia com todas as rotas já configuradas:  
 
-<https://labs-api-wa-project.herokuapp.com/insomnia>
+<https://labs-api-wa-project.herokuapp.com/insomnia-download>
 
-Ou se preferir baixe o arquivo:
-
-[Baixar insomnia.json](https://labs-api-wa-project.herokuapp.com/insomnia-download)
 ### Executando Localmente
 
 Para executar localmente é necessário ter instalado o [Node.JS](https://nodejs.org) no seu computador e o gerenciador de pacotes [Yarn](https://yarnpkg.com/).
