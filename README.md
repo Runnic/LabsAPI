@@ -8,13 +8,17 @@ Também utilizei o [ESLint](https://eslint.org/) e [Prettier](https://prettier.i
 
 ### Acessando a API.
 
-A API está hospedada no serviço de Cloud **Heroku**: [LabsAPI](https://labs-api-wa-project.herokuapp.com/)  
+A API está hospedada no serviço de Cloud **Heroku**: [LabsAPI](https://labs-api-wa-project.herokuapp.com/)   
 Para testar a API recomendo utilizar a ferramenta [Insominia](https://insomnia.rest/download).
 Acesse o seguinte **botão** para importar a **coleção** do Insominia com todas as rotas já configuradas:  
 
 [![Execute no Insomnia}](https://insomnia.rest/images/run.svg)](https://insomnia.rest/run/?label=Labs%20API&uri=https%3A%2F%2Flabs-api-wa-project.herokuapp.com%2Finsomnia-download)
 
 Ou se preferir baixe o arquivo [insomnia.json](https://labs-api-wa-project.herokuapp.com/insomnia-download).
+
+#### Documentação
+
+A documentação foi gerada através do plugin [Insomnia Documenter](https://github.com/jozsefsallai/insomnia-documenter) e pode ser acessada [aqui.](https://labs-api-wa-project.herokuapp.com/docs/)
 ### Executando Localmente:
 
 Primeiramente é necessário acessar a pasta raíz do projeto e configurar um arquivo **.env**, para isso apenas crie um arquivo com o nome exato ".env" e preencha com as seguintes linhas:
