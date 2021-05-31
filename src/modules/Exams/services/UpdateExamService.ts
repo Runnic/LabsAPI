@@ -13,17 +13,19 @@ class UpdateExamService {
 
   async execute(data: IUpdateExamDTO | IUpdateExamDTO[]) {
     if (data instanceof Array) {
-      const exams = await Promise.all(
+      let count = 0
+
+      const errors = await Promise.all(
         data.map(async (queryExam) => {
           if (queryExam._id.length !== 24)
-            return { message: `ExamID: ${queryExam._id} é inválido.` }
+            return { message: `ID: ${queryExam._id} é inválido.` }
 
           if (queryExam.status) {
             if (
               !(queryExam.status === 'Ativo' || queryExam.status === 'Inativo')
             )
               return {
-                message: `ExamID: ${queryExam._id}, alteração de status inválido.`,
+                message: `ID: ${queryExam._id}, alteração de status inválido.`,
               }
           }
 
@@ -35,22 +37,25 @@ class UpdateExamService {
               )
             )
               return {
-                message: `ExamID: ${queryExam._id}, alteração de tipo inválido.`,
+                message: `ID: ${queryExam._id}, alteração de tipo inválido.`,
               }
           }
 
           const matchedLabs = await this.examsRepository.update(queryExam)
 
           if (matchedLabs <= 0)
-            return { message: `ExamID: ${queryExam._id} não encontrado.` }
+            return { message: `ID: ${queryExam._id} não encontrado.` }
 
-          const lab = await this.examsRepository.listById(queryExam._id)
+          count += 1
 
-          return lab
+          return null
         })
       )
 
-      return exams
+      return {
+        message: `${count} exames alterados.`,
+        erros: errors.filter((erro) => erro !== null),
+      }
     }
 
     if (data._id.length !== 24) throw new AppError('ID inválido.')

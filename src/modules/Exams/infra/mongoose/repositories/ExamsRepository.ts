@@ -62,4 +62,22 @@ export default class ExamRepository implements IExamsRepository {
 
     return n
   }
+
+  async deleteAll(): Promise<Number> {
+    const { nModified } = await this.mongooseRepository.updateMany(
+      { status: 'Ativo' },
+      { status: 'Inativo' }
+    )
+
+    return nModified
+  }
+
+  async activateAll(): Promise<Number> {
+    const { nModified } = await this.mongooseRepository.updateMany(
+      { status: 'Inativo' },
+      { status: 'Ativo' }
+    )
+
+    return nModified
+  }
 }

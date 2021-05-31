@@ -15,4 +15,8 @@ export default interface IExamsRepository {
   delete(_id: string): Promise<Number>
 
   update(data: IUpdateExamDTO): Promise<Number>
+
+  deleteAll(): Promise<Number>
+
+  activateAll(): Promise<Number>
 }

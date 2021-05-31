@@ -7,7 +7,7 @@ const examsController = new ExamsController()
 
 ExamsRouter.get('/', examsController.list)
 
-ExamsRouter.get('/:name', examsController.listByName)
+// ExamsRouter.get('/:name', examsController.listByName)
 
 ExamsRouter.post('/', examsController.create)
 
@@ -16,5 +16,9 @@ ExamsRouter.delete('/', examsController.delete)
 ExamsRouter.patch('/', examsController.update)
 
 ExamsRouter.get('/relacoes/:name', examsController.listLaboratoriesFromExam)
+
+ExamsRouter.delete('/delete-all', examsController.deleteAll)
+
+ExamsRouter.patch('/activate-all', examsController.activateAll)
 
 export default ExamsRouter

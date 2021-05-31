@@ -60,4 +60,22 @@ export default class LabRepository implements ILabsRepository {
 
     return n
   }
+
+  async activateAll(): Promise<Number> {
+    const { nModified } = await this.mongooseRepository.updateMany(
+      { status: 'Inativo' },
+      { status: 'Ativo' }
+    )
+
+    return nModified
+  }
+
+  async deleteAll(): Promise<Number> {
+    const { nModified } = await this.mongooseRepository.updateMany(
+      { status: 'Ativo' },
+      { status: 'Inativo' }
+    )
+
+    return nModified
+  }
 }

@@ -7,8 +7,8 @@ import ListExamByNameService from '@modules/Exams/services/ListExamByNameService
 import DeleteExamService from '@modules/Exams/services/DeleteExamService'
 import UpdateExamService from '@modules/Exams/services/UpdateExamService'
 import ListLaboratoriesFromExam from '@modules/Exams/services/ListLaboratoriesFromExam'
-
-import ICreateExamDTO from '@modules/Exams/DTOS/ICreateExamDTO'
+import DeleteAllExamsService from '@modules/Exams/services/DeleteAllExamsService'
+import ActivateAllExamsService from '@modules/Exams/services/ActivateAllExamsService'
 
 export default class ExamsController {
   async list(req: Request, res: Response): Promise<Response> {
@@ -61,8 +61,24 @@ export default class ExamsController {
   async update(req: Request, res: Response): Promise<Response> {
     const updateExamService = container.resolve(UpdateExamService)
 
-    const exam = await updateExamService.execute(req.body)
+    const updateLog = await updateExamService.execute(req.body)
 
-    return res.json({ exam })
+    return res.json(updateLog)
+  }
+
+  async deleteAll(req: Request, res: Response): Promise<Response> {
+    const deleteAllExamsService = container.resolve(DeleteAllExamsService)
+
+    const message = await deleteAllExamsService.execute()
+
+    return res.json({ message })
+  }
+
+  async activateAll(req: Request, res: Response): Promise<Response> {
+    const activateAllExamsService = container.resolve(ActivateAllExamsService)
+
+    const message = await activateAllExamsService.execute()
+
+    return res.json({ message })
   }
 }

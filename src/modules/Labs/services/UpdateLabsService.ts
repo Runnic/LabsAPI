@@ -12,7 +12,9 @@ class UpdateLabsService {
 
   async execute(data: IUpdateLabDTO | IUpdateLabDTO[]) {
     if (data instanceof Array) {
-      const labs = await Promise.all(
+      let count = 0
+
+      const errors = await Promise.all(
         data.map(async (queryLab) => {
           if (queryLab._id.length !== 24)
             return { message: `LabID: ${queryLab._id} é inválido.` }
@@ -29,13 +31,16 @@ class UpdateLabsService {
           if (matchedLabs <= 0)
             return { message: `LabID: ${queryLab._id} não encontrado.` }
 
-          const lab = await this.labsRepository.listById(queryLab._id)
+          count += 1
 
-          return lab
+          return null
         })
       )
 
-      return labs
+      return {
+        message: `${count} laboratórios alterados.`,
+        erros: errors.filter((error) => error !== null),
+      }
     }
 
     if (data._id.length !== 24) throw new AppError('ID inválido.')

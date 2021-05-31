@@ -16,17 +16,25 @@ class DeleteExamService {
   async execute(data: IRequest | IRequest[]) {
     if (data instanceof Array) {
       let count = 0
-      await Promise.all(
+      const errors = await Promise.all(
         data.map(async (queryExam) => {
-          if (queryExam._id.length === 24) {
-            const nModified = await this.examsRepository.delete(queryExam._id)
+          if (queryExam._id.length !== 24)
+            return `ID: ${queryExam._id} inválido.`
 
-            if (nModified > 0) count += 1
-          }
+          const nModified = await this.examsRepository.delete(queryExam._id)
+
+          if (nModified <= 0) return `ID: ${queryExam._id} não encontrado.`
+
+          count += 1
+
+          return null
         })
       )
 
-      return `${count} exames removidos.`
+      return {
+        message: `${count} exames removidos.`,
+        erros: errors.filter((error) => error !== null),
+      }
     }
 
     if (data._id.length !== 24) throw new AppError('ID inválido.')

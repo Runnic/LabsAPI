@@ -1,7 +1,7 @@
 # Labs API
 
 Projeto desenvolvido para seleção da **WA Project**.  
-O projeto consiste em criar uma restAPI que cadastre Laboratórios e Exames, e relacione esses dois se necessário.  
+O projeto consiste em criar uma restAPI que cadastre laboratórios e exames em **lote** e relacione esses dois se necessário.  
 Desenvolvi esse projeto utilizando [Typescript](https://www.typescriptlang.org/) com [Express.Js](https://expressjs.com/pt-br/) e arquitetura **DDD (Domain-Driven Design)**.  
 Também utilizei o [ESLint](https://eslint.org/) e [Prettier](https://prettier.io/) para manter uma boa organização de código.
 

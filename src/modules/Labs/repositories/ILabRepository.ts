@@ -15,4 +15,8 @@ export default interface ILabsRepository {
   deleteOne(_id: string): Promise<Number>
 
   updateOne(data: IUpdateLabDTO): Promise<Number>
+
+  deleteAll(): Promise<Number>
+
+  activateAll(): Promise<Number>
 }

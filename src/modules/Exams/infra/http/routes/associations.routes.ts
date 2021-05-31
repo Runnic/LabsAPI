@@ -5,7 +5,7 @@ import AssociationsController from '../controllers/AssociationsController'
 const AssociationsRouter = Router()
 const associationsController = new AssociationsController()
 
-// AssociationsRouter.get('/', associationsController.list)
+AssociationsRouter.get('/', associationsController.list)
 
 // AssociationsRouter.get('/:_id', associationsController.listOne)
 

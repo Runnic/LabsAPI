@@ -3,17 +3,17 @@ import { container } from 'tsyringe'
 
 import CreateAssociationService from '@modules/Exams/services/CreateAssociationService'
 import DeleteAssociationService from '@modules/Exams/services/DeleteAssociationService'
-// import ListAssociationsService from '@modules/Exams/services/ListAssociationsService'
+import ListAssociationsService from '@modules/Exams/services/ListAssociationsService'
 // import ListOneAssociationService from '@modules/Exams/services/ListOneAssociationService'
 
 export default class AssociationsController {
-  // async list(req: Request, res: Response) {
-  //   const listAssociationsService = container.resolve(ListAssociationsService)
+  async list(req: Request, res: Response) {
+    const listAssociationsService = container.resolve(ListAssociationsService)
 
-  //   const associations = await listAssociationsService.execute()
+    const associations = await listAssociationsService.execute()
 
-  //   return res.json({ associations })
-  // }
+    return res.json({ associations })
+  }
 
   // async listOne(req: Request, res: Response) {
   //   const listOneAssociationService = container.resolve(

@@ -6,9 +6,10 @@ import ListLabsService from '@modules/Labs/services/ListLabsService'
 import DeleteLabsService from '@modules/Labs/services/DeleteLabsService'
 import UpdateLabsService from '@modules/Labs/services/UpdateLabsService'
 import ListLabByIDService from '@modules/Labs/services/ListLabByIDService'
-import ListLabByNameService from '@modules/Labs/services/ListLabByNameService'
+import DeleteAllLabsService from '@modules/Labs/services/DeleteAllLabsService'
+import ActivateAllLabsService from '@modules/Labs/services/ActivateAllLabsService'
 export default class LabController {
-  async list(req: Request, res: Response): Promise<Response> {
+  async list(_: Request, res: Response): Promise<Response> {
     const listLabsService = container.resolve(ListLabsService)
 
     const labs = await listLabsService.execute()
@@ -36,16 +37,32 @@ export default class LabController {
   async delete(req: Request, res: Response): Promise<Response> {
     const deleteLabsService = container.resolve(DeleteLabsService)
 
-    const message = await deleteLabsService.execute(req.body)
+    const deleteLog = await deleteLabsService.execute(req.body)
 
-    return res.json({ message })
+    return res.json(deleteLog)
   }
 
   async update(req: Request, res: Response): Promise<Response> {
     const updateLabsService = container.resolve(UpdateLabsService)
 
-    const labs = await updateLabsService.execute(req.body)
+    const updateLog = await updateLabsService.execute(req.body)
 
-    return res.json({ labs })
+    return res.json(updateLog)
+  }
+
+  async deleteAll(_: Request, res: Response): Promise<Response> {
+    const deleteAllLabsService = container.resolve(DeleteAllLabsService)
+
+    const message = await deleteAllLabsService.execute()
+
+    return res.json({ message })
+  }
+
+  async activateAll(_: Request, res: Response): Promise<Response> {
+    const activateAllLabsService = container.resolve(ActivateAllLabsService)
+
+    const message = await activateAllLabsService.execute()
+
+    return res.json({ message })
   }
 }
