@@ -11,8 +11,16 @@ routes.use('/laboratorios', LabsRouter)
 routes.use('/exames', ExamsRouter)
 routes.use('/associacoes', AssociationsRouter)
 
+routes.get('/insomnia', (_, res: Response) =>
+  res.sendFile(path.join(__dirname, '../static/insomnia.json'))
+)
+
+routes.get('/insomnia-download', (_, res: Response) =>
+  res.download(path.join(__dirname, '../static/insomnia.json'))
+)
+
 routes.get('/', (_, res: Response) =>
-  res.sendFile(path.join(__dirname, '../index.html'))
+  res.sendFile(path.join(__dirname, '../static/index.html'))
 )
 
 export default routes

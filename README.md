@@ -1,20 +1,21 @@
 # Labs API
 
-Projeto desenvolvido para seleção da **WA Project**.
-
-O projeto consiste em criar uma restAPI que cadastre Laboratórios e Exames, e relacione esses dois se necessário.
-
-Desenvolvi esse projeto utilizando [Typescript](https://www.typescriptlang.org/) com [Express.Js](https://expressjs.com/pt-br/) e arquitetura **DDD (Domain-Driven Design)**.
-
+Projeto desenvolvido para seleção da **WA Project**.  
+O projeto consiste em criar uma restAPI que cadastre Laboratórios e Exames, e relacione esses dois se necessário.  
+Desenvolvi esse projeto utilizando [Typescript](https://www.typescriptlang.org/) com [Express.Js](https://expressjs.com/pt-br/) e arquitetura **DDD (Domain-Driven Design)**.  
 Também utilizei o [ESLint](https://eslint.org/) e [Prettier](https://prettier.io/) para manter uma boa organização de código.
 
 ### Acessando a API.
 
-A API está hospedada no serviço de Cloud **Heroku**: _em breve_
-
+A API está hospedada no serviço de Cloud **Heroku**: [LabsAPI](https://labs-api-wa-project.herokuapp.com/)  
 Para testar a API recomendo utilizar a ferramenta [Insominia](https://insomnia.rest/download).
-Baixe ou copie o seguinte link para importar a **coleção** do Insominia com todas as rotas já configuradas: _em breve_
+Copie o seguinte link para importar a **coleção** do Insominia com todas as rotas já configuradas:  
 
+<https://labs-api-wa-project.herokuapp.com/insomnia>
+
+Ou se preferir baixe o arquivo:
+
+[Baixar insomnia.json](https://labs-api-wa-project.herokuapp.com/insomnia-download)
 ### Executando Localmente
 
 Para executar localmente é necessário ter instalado o [Node.JS](https://nodejs.org) no seu computador e o gerenciador de pacotes [Yarn](https://yarnpkg.com/).
@@ -30,7 +31,7 @@ Também é necessário configurar um arquivo **.env**, para isso apenas crie um 
 >
 > MONGODB_PASSWORD=_Sua Senha do MongoDB Atlas_
 
-Caso precise das credencias entre em contato comigo pelo email: **ph.luna.vieira@gmail.com**.
+Caso precise das credencias entre em contato comigo pelo email: <ph.luna.vieira@gmail.com>
 
 E por fim execute o seguinte comando para iniciar um servidor de desenvolvimento:
 
