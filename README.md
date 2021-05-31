@@ -14,7 +14,8 @@ Acesse o seguinte **botão** para importar a **coleção** do Insominia com toda
 
 [![Execute no Insomnia}](https://insomnia.rest/images/run.svg)](https://insomnia.rest/run/?label=Labs%20API&uri=https%3A%2F%2Flabs-api-wa-project.herokuapp.com%2Finsomnia-download)
 
-### Executando Localmente:'
+Ou se preferir baixe o arquivo [insomnia.json](https://labs-api-wa-project.herokuapp.com/insomnia-download).
+### Executando Localmente:
 
 Primeiramente é necessário acessar a pasta raíz do projeto e configurar um arquivo **.env**, para isso apenas crie um arquivo com o nome exato ".env" e preencha com as seguintes linhas:
 
@@ -53,6 +54,8 @@ E por fim execute o seguinte comando para iniciar um servidor de desenvolvimento
 ```bash
 yarn dev
 ```
+
+E acesse normalmente através do link http://localhost:7777/.  
 
 ---
 ### Gerando Build
