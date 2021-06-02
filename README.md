@@ -48,14 +48,14 @@ E acesse normalmente através do link http://localhost:7777/.
 ---
 #### Yarn
 
-Para executar localmente utilizando o método tradicional é necessário ter instalado o [Node.JS](https://nodejs.org) no seu computador e o gerenciador de pacotes [Yarn](https://yarnpkg.com/).
+Para executar localmente utilizando o **Yarn** é necessário ter instalado o [Node.JS](https://nodejs.org) no seu computador e o gerenciador de pacotes [Yarn](https://yarnpkg.com/).
 Em seguida execute o seguinte comando no terminal do seu SO na **pasta raiz do projeto** para instalar todas as dependências:
 
 ```bash
 yarn
 ```
 
-E ems seguida execute o seguinte comando para iniciar um servidor de desenvolvimento:
+E em seguida execute o seguinte comando para iniciar um servidor de desenvolvimento:
 
 ```bash
 yarn dev
