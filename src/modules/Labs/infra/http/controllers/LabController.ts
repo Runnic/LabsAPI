@@ -5,7 +5,7 @@ import CreateLabService from '@modules/Labs/services/CreateLabService'
 import ListLabsService from '@modules/Labs/services/ListLabsService'
 import DeleteLabsService from '@modules/Labs/services/DeleteLabsService'
 import UpdateLabsService from '@modules/Labs/services/UpdateLabsService'
-import ListLabByIDService from '@modules/Labs/services/ListLabByIDService'
+import ListExamsFromLabService from '@modules/Labs/services/ListExamsFromLabService'
 import DeleteAllLabsService from '@modules/Labs/services/DeleteAllLabsService'
 import ActivateAllLabsService from '@modules/Labs/services/ActivateAllLabsService'
 export default class LabController {
@@ -17,11 +17,11 @@ export default class LabController {
     return res.json({ labs })
   }
 
-  async listByID(req: Request, res: Response): Promise<Response> {
-    const listLabByIDService = container.resolve(ListLabByIDService)
-    const { _id } = req.params
+  async listExamsFromLab(req: Request, res: Response): Promise<Response> {
+    const listExamsFromLabService = container.resolve(ListExamsFromLabService)
+    const { labName } = req.params
 
-    const lab = await listLabByIDService.execute(_id)
+    const lab = await listExamsFromLabService.execute(labName)
 
     return res.json({ lab })
   }

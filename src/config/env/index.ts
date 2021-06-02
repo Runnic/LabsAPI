@@ -2,18 +2,16 @@ import dotenv from 'dotenv'
 
 dotenv.config()
 
-if (
-  process.env.MONGODB_USER === undefined ||
-  process.env.MONGODB_PASSWORD === undefined
-)
-  throw new Error(
-    'Credências MONGODB não configuradas, veja o arquivo README.md para mais informações.'
-  )
+let url = ''
+
+if (process.env.MONGODB_ATLAS_CONNECTION_URL === undefined)
+  url =
+    'mongodb+srv://PUBLIC:A6SqJRlXZx4SnkP9@maincluster.eixmq.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
+else url = process.env.MONGODB_ATLAS_CONNECTION_URL
 
 const envVariables = {
-  mongodb: {
-    user: process.env.MONGODB_USER,
-    password: process.env.MONGODB_PASSWORD,
+  mongoDbAtlas: {
+    url,
   },
 }
 

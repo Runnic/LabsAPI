@@ -1,6 +1,6 @@
 import { inject, injectable } from 'tsyringe'
 
-import IExamsRepository from '../repositories/IExamsRepository'
+import IExamsRepository from '../../repositories/IExamsRepository'
 
 @injectable()
 class ListExamsService {
@@ -9,9 +9,9 @@ class ListExamsService {
   ) {}
 
   async execute() {
-    const labsArray = await this.examsRepository.list()
+    const exams = await this.examsRepository.list()
 
-    return labsArray
+    return exams.filter((exam) => exam.status === 'Ativo')
   }
 }
 

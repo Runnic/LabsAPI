@@ -1,14 +1,14 @@
 import { Request, Response } from 'express'
 import { container } from 'tsyringe'
 
-import CreateExamService from '@modules/Exams/services/CreateExamService'
-import ListExamsService from '@modules/Exams/services/ListExamsService'
-import ListExamByNameService from '@modules/Exams/services/ListExamByNameService'
-import DeleteExamService from '@modules/Exams/services/DeleteExamService'
-import UpdateExamService from '@modules/Exams/services/UpdateExamService'
-import ListLaboratoriesFromExam from '@modules/Exams/services/ListLaboratoriesFromExam'
-import DeleteAllExamsService from '@modules/Exams/services/DeleteAllExamsService'
-import ActivateAllExamsService from '@modules/Exams/services/ActivateAllExamsService'
+import CreateExamService from '@modules/Exams/services/ExamsServices/CreateExamService'
+import ListExamsService from '@modules/Exams/services/ExamsServices/ListExamsService'
+import ListExamByNameService from '@modules/Exams/services/ExamsServices/ListExamByNameService'
+import DeleteExamService from '@modules/Exams/services/ExamsServices/DeleteExamService'
+import UpdateExamService from '@modules/Exams/services/ExamsServices/UpdateExamService'
+import ListLaboratoriesFromExam from '@modules/Exams/services/ExamsServices/ListLaboratoriesFromExam'
+import DeleteAllExamsService from '@modules/Exams/services/ExamsServices/DeleteAllExamsService'
+import ActivateAllExamsService from '@modules/Exams/services/ExamsServices/ActivateAllExamsService'
 
 export default class ExamsController {
   async list(req: Request, res: Response): Promise<Response> {

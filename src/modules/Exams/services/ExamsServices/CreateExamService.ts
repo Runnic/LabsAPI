@@ -1,8 +1,8 @@
 import { inject, injectable } from 'tsyringe'
 
-import IExamsRepository from '../repositories/IExamsRepository'
+import IExamsRepository from '../../repositories/IExamsRepository'
 
-import ICreateExamDTO from '../DTOS/ICreateExamDTO'
+import ICreateExamDTO from '../../DTOS/ICreateExamDTO'
 import AppError from '@shared/Errors/AppError'
 
 @injectable()
@@ -17,7 +17,15 @@ class CreateExamService {
         data.map(async (queryExam) => {
           const exam = await this.examsRepository.listByName(queryExam.name)
 
-          if (exam) return { message: `Exame \'${queryExam.name}\' já existe.` }
+          if (exam) {
+            if (exam.status === 'Inativo') {
+              return {
+                message: `Exame \'${queryExam.name}\' já existe porém está inativo.`,
+              }
+            }
+
+            return { message: `Exame \'${queryExam.name}\' já existe.` }
+          }
 
           const newExam = await this.examsRepository.create(queryExam)
 

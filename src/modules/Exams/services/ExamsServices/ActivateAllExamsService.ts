@@ -2,7 +2,7 @@ import { inject, injectable } from 'tsyringe'
 
 import AppError from '@shared/Errors/AppError'
 
-import IExamsRepository from '../repositories/IExamsRepository'
+import IExamsRepository from '../../repositories/IExamsRepository'
 
 @injectable()
 class ActivateAllExamsService {

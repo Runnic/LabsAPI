@@ -16,31 +16,31 @@ class DeleteLabsService {
   async execute(data: IRequest | IRequest[]) {
     if (data instanceof Array) {
       let count = 0
-      const errors = await Promise.all(
+      const errors: string[] = []
+
+      await Promise.all(
         data.map(async (queryLab) => {
-          if (queryLab._id.length !== 24) return `ID: ${queryLab._id} inválido.`
+          const nModified = await this.labsRepository.delete(queryLab._id)
 
-          const nModified = await this.labsRepository.deleteOne(queryLab._id)
-
-          if (nModified <= 0) return `ID: ${queryLab._id} não encontrado.`
+          if (nModified <= 0) {
+            errors.push(`ID: ${queryLab._id} não encontrado.`)
+            return
+          }
 
           count += 1
-          return null
         })
       )
 
       return {
         message: `${count} laboratórios removidos.`,
-        erros: errors.filter((error) => error !== null),
+        erros: errors,
       }
     }
 
-    if (data._id.length !== 24) throw new AppError('ID inválido.')
-
-    const nModified = await this.labsRepository.deleteOne(data._id)
+    const nModified = await this.labsRepository.delete(data._id)
 
     if (nModified <= 0) {
-      throw new AppError('Nenhum laboratório encontrado.', 404)
+      throw new AppError('Laboratório não encontrado.', 404)
     }
     return `Laboratório removido.`
   }

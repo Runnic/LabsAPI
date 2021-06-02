@@ -16,7 +16,7 @@ export default class LabRepository implements ILabsRepository {
   }
 
   async list(): Promise<ILab[]> {
-    const labs = await this.mongooseRepository.find({ status: 'Ativo' })
+    const labs = await this.mongooseRepository.find()
 
     return labs
   }
@@ -43,7 +43,7 @@ export default class LabRepository implements ILabsRepository {
     return lab
   }
 
-  async deleteOne(_id: string): Promise<Number> {
+  async delete(_id: string): Promise<Number> {
     const { nModified } = await this.mongooseRepository.updateOne(
       { _id, status: 'Ativo' },
       { status: 'Inativo' }
@@ -52,7 +52,7 @@ export default class LabRepository implements ILabsRepository {
     return nModified
   }
 
-  async updateOne(data: IUpdateLabDTO): Promise<Number> {
+  async update(data: IUpdateLabDTO): Promise<Number> {
     const { n } = await this.mongooseRepository.updateOne(
       { _id: data._id },
       { ...data }

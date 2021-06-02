@@ -21,22 +21,24 @@ Ou se preferir baixe o arquivo [insomnia.json](https://labs-api-wa-project.herok
 A documentação foi gerada através do plugin [Insomnia Documenter](https://github.com/jozsefsallai/insomnia-documenter) e pode ser acessada [aqui.](https://labs-api-wa-project.herokuapp.com/docs/)
 ### Executando Localmente:
 
-Primeiramente é necessário acessar a pasta raíz do projeto e configurar um arquivo **.env**, para isso apenas crie um arquivo com o nome exato ".env" e preencha com as seguintes linhas:
+O projeto ja está pronto para ser executado localmente seguindo uma das duas opções abaixo (Docker ou Yarn).
 
-> MONGODB_USER=_Seu Usuário do MongoDB Atlas_
->
-> MONGODB_PASSWORD=_Sua Senha do MongoDB Atlas_
+Se achar necessário é possivel configurar um **link** de acesso do [MongoDB Atlas](https://www.mongodb.com/) apenas criando um arquivo **.env** na raiz do projeto e inserindo a seguinte linha:
 
-Caso precise de credências entre em contato comigo pelo email: <ph.luna.vieira@gmail.com>
+> MONGODB_ATLAS_CONNECTION_URL= _Seu link de acesso do MongoDB Atlas_
+
+Caso não configure o projeto utilizara um link de acesso pré-configurado.
+
+Precisando alguma credêncial entre em contato comigo pelo email: <ph.luna.vieira@gmail.com>
 
 #### Docker
 
-Para executar localmente utilizando o **Docker** é ter [Docker](https://www.docker.com/) e o [Docker Composer](https://docs.docker.com/compose/)
+Para executar localmente utilizando o **Docker** é necessário ter [Docker](https://www.docker.com/) e o [Docker Composer](https://docs.docker.com/compose/)
 instalados e configurados em seu sistema.   
-Verifique se a porta '7777' está disponível e em seguida acesse a pasta raíz do projeto e execute o comando:
+Verifique se a porta **:7777** está disponível e em seguida acesse a pasta raíz do projeto e execute o comando:
 
 ```bash
-    docker-compose up
+    yarn docker
 ``` 
 
 E acesse normalmente através do link http://localhost:7777/.   
@@ -53,7 +55,7 @@ Em seguida execute o seguinte comando no terminal do seu SO na **pasta raiz do p
 yarn
 ```
 
-E por fim execute o seguinte comando para iniciar um servidor de desenvolvimento:
+E ems seguida execute o seguinte comando para iniciar um servidor de desenvolvimento:
 
 ```bash
 yarn dev
@@ -65,7 +67,7 @@ E acesse normalmente através do link http://localhost:7777/.
 ### Gerando Build
 
 Esse projeto utiliza [Typescript](https://www.typescriptlang.org/) como linguagem de desenvolvimento portanto é necessário transpilar o código para Javascript se for executar o projeto em algum ambiente que não reconheça Typescript.
-Por isso configurei o transpilador [BabelJs](https://babeljs.io/) para fazer esse serviço.
+Por isso configurei o transpilador [BabelJs](https://babeljs.io/).
 
 Para transpilar apenas digite o seguinte comando no terminal do seu SO:
 

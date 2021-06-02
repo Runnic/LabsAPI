@@ -1,5 +1,6 @@
 import { Router, Response } from 'express'
 import appRoot from 'app-root-path'
+
 import LabsRouter from '@modules/Labs/infra/http/routes/labs.routes'
 import ExamsRouter from '@modules/Exams/infra/http/routes/exams.routes'
 import AssociationsRouter from '@modules/Exams/infra/http/routes/associations.routes'

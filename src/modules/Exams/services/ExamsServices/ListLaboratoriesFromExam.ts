@@ -2,8 +2,8 @@ import { inject, injectable } from 'tsyringe'
 
 import AppError from '@shared/Errors/AppError'
 
-import IExamsRepository from '../repositories/IExamsRepository'
-import IAssociationRepository from '../repositories/IAssociationsRepository'
+import IExamsRepository from '../../repositories/IExamsRepository'
+import IAssociationRepository from '../../repositories/IAssociationsRepository'
 import ILabsRepository from '@modules/Labs/repositories/ILabRepository'
 
 @injectable()
@@ -18,10 +18,11 @@ class ListExamByNameService {
   async execute(name: string) {
     const exam = await this.examsRepository.listByName(name)
 
-    if (!exam) throw new AppError('Exame não encontrado.', 404)
+    if (!exam?._id || exam.status === 'Inativo')
+      throw new AppError('Exame não encontrado.', 404)
 
     const associations = await this.associationsRepository.listByExamId(
-      exam._id as string
+      exam._id
     )
 
     if (associations.length <= 0)

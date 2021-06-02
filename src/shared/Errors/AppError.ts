@@ -3,8 +3,11 @@ export default class AppError {
 
   public readonly statusCode: number
 
-  constructor(message: string, statusCode = 400) {
+  public readonly items?: any[]
+
+  constructor(message: string, statusCode = 400, items?: any[]) {
     this.message = message
     this.statusCode = statusCode
+    this.items = items
   }
 }

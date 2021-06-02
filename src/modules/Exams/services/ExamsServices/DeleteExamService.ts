@@ -2,7 +2,7 @@ import { inject, injectable } from 'tsyringe'
 
 import AppError from '@shared/Errors/AppError'
 
-import IExamsRepository from '../repositories/IExamsRepository'
+import IExamsRepository from '../../repositories/IExamsRepository'
 
 interface IRequest {
   _id: string
@@ -15,29 +15,29 @@ class DeleteExamService {
 
   async execute(data: IRequest | IRequest[]) {
     if (data instanceof Array) {
+      const errors: string[] = []
       let count = 0
-      const errors = await Promise.all(
-        data.map(async (queryExam) => {
-          if (queryExam._id.length !== 24)
-            return `ID: ${queryExam._id} inválido.`
 
+      await Promise.all(
+        data.map(async (queryExam) => {
           const nModified = await this.examsRepository.delete(queryExam._id)
 
-          if (nModified <= 0) return `ID: ${queryExam._id} não encontrado.`
+          if (nModified <= 0) {
+            errors.push(`ID: ${queryExam._id} não encontrado.`)
+            return
+          }
 
           count += 1
 
-          return null
+          return
         })
       )
 
       return {
         message: `${count} exames removidos.`,
-        erros: errors.filter((error) => error !== null),
+        erros: errors,
       }
     }
-
-    if (data._id.length !== 24) throw new AppError('ID inválido.')
 
     const nModified = await this.examsRepository.delete(data._id)
 

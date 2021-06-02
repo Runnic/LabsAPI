@@ -2,7 +2,7 @@ import { inject, injectable } from 'tsyringe'
 
 import AppError from '@shared/Errors/AppError'
 
-import IAssociationsRepository from '../repositories/IAssociationsRepository'
+import IAssociationsRepository from '../../repositories/IAssociationsRepository'
 
 @injectable()
 class ListOneAssociationService {

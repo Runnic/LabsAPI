@@ -1,4 +1,5 @@
 import ILab from '../interfaces/ILab'
+import IExam from '@modules/Exams/interfaces/IExam'
 
 import ICreateLabDTO from '../DTOS/ICreateLabDTO'
 import IDeleteLabDTO from '../DTOS/IDeleteLabDTO'
@@ -12,9 +13,9 @@ export default interface ILabsRepository {
 
   create(data: ICreateLabDTO): Promise<ILab>
 
-  deleteOne(_id: string): Promise<Number>
+  delete(_id: string): Promise<Number>
 
-  updateOne(data: IUpdateLabDTO): Promise<Number>
+  update(data: IUpdateLabDTO): Promise<Number>
 
   deleteAll(): Promise<Number>
 

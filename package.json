@@ -6,9 +6,11 @@
   "scripts": {
     "dev": "ts-node-dev -r tsconfig-paths/register --respawn --transpile-only --no-notify src/shared/infra/http/server.ts",
     "build": "babel src --extensions \".js,.ts\" --out-dir dist --copy-files --no-copy-ignored",
-    "start": "node dist/shared/infra/http/server.js"
+    "start": "node dist/shared/infra/http/server.js",
+    "docker": "sudo docker-compose up"
   },
   "dependencies": {
+    "ajv": "^8.5.0",
     "app-root-path": "^3.0.0",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",

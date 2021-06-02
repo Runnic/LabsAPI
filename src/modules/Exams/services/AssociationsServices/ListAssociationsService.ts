@@ -1,6 +1,6 @@
 import { inject, injectable } from 'tsyringe'
 
-import IAssociationsRepository from '../repositories/IAssociationsRepository'
+import IAssociationsRepository from '../../repositories/IAssociationsRepository'
 
 @injectable()
 class ListAssociationsService {

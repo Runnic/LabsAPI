@@ -11,6 +11,7 @@ export default function GlobalExceptionHandler(
   if (error instanceof AppError) {
     return res.status(error.statusCode).json({
       message: error.message,
+      items: error.items,
     })
   }
 

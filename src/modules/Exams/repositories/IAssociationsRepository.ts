@@ -9,6 +9,8 @@ export default interface IAssociationRepository {
 
   listByExamId(exam_id: string): Promise<IAssociation[]>
 
+  listByLabId(lab_id: string): Promise<IAssociation[]>
+
   create(data: ICreateAssociationsDTO): Promise<IAssociation>
 
   delete(_id: string): Promise<undefined | Number>

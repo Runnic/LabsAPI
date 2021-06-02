@@ -15,7 +15,7 @@ export default class ExamRepository implements IExamsRepository {
   }
 
   async list(): Promise<IExam[]> {
-    const examsList = await this.mongooseRepository.find({ status: 'Ativo' })
+    const examsList = await this.mongooseRepository.find()
 
     return examsList
   }
@@ -29,7 +29,6 @@ export default class ExamRepository implements IExamsRepository {
   async listByName(name: string): Promise<null | IExam> {
     const exam = await this.mongooseRepository.findOne({
       name,
-      status: 'Ativo',
     })
 
     return exam
@@ -47,7 +46,7 @@ export default class ExamRepository implements IExamsRepository {
 
   async delete(_id: string): Promise<Number> {
     const { nModified } = await this.mongooseRepository.updateOne(
-      { _id },
+      { _id, status: 'Ativo' },
       { status: 'Inativo' }
     )
 

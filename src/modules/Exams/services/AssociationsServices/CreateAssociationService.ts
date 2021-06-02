@@ -1,12 +1,12 @@
 import { inject, injectable } from 'tsyringe'
 
-import IAssociationRepository from '../repositories/IAssociationsRepository'
-import IExamsRepository from '../repositories/IExamsRepository'
+import IAssociationRepository from '../../repositories/IAssociationsRepository'
+import IExamsRepository from '../../repositories/IExamsRepository'
 import ILabsRepository from '@modules/Labs/repositories/ILabRepository'
 
 import AppError from '@shared/Errors/AppError'
 
-import ICreateAssociationsDTO from '../DTOS/ICreateAssociationsDTO'
+import ICreateAssociationsDTO from '../../DTOS/ICreateAssociationsDTO'
 
 @injectable()
 class CreateAssociationService {

@@ -30,6 +30,12 @@ export default class AssociationRepository implements IAssociationsRepository {
     return associationsList
   }
 
+  async listByLabId(labId: string): Promise<IAssociation[]> {
+    const associationsList = await this.mongooseRepository.find({ labId })
+
+    return associationsList
+  }
+
   async create({
     examId,
     labId,

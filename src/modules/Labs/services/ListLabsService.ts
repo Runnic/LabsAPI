@@ -9,9 +9,9 @@ class ListLabsService {
   ) {}
 
   async execute() {
-    const labsArray = await this.labsRepository.list()
+    const labs = await this.labsRepository.list()
 
-    return labsArray
+    return labs.filter((lab) => lab.status === 'Ativo')
   }
 }
 

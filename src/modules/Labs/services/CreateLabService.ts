@@ -22,7 +22,11 @@ class CreateLabService {
 
           const lab = await this.labsRepository.listByName(name)
 
-          if (lab) return { message: `${lab.name} ja existe.` }
+          if (lab) {
+            if (lab.status === 'Inativo')
+              return { message: `${lab.name} ja existe. Porém está inativo.` }
+            return { message: `${lab.name} ja existe.` }
+          }
 
           const newLab = await this.labsRepository.create({ name, address })
 
